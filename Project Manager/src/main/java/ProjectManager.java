@@ -1,43 +1,34 @@
 import java.util.Scanner;
 
+import ui.ProjectsUI;
+
 public class ProjectManager {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // 2
-        System.out.println("Welcome to the Simple Calculator!");
-        System.out.println("Please enter the first number:"); // 3
-        double num1 = scanner.nextDouble();
-        System.out.println("Please enter the second number:");
-        double num2 = scanner.nextDouble();
-        System.out.println("Please enter an operator (+, -, *, /):");
-        char operator = scanner.next().charAt(0);
-        scanner.close();
-        double output;
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
 
-        switch (operator) // 4
-        {
-        case '+':
-            output = num1 + num2;
-            break;
-        case '-':
-            output = num1 - num2;
-            break;
-        case '*':
-            output = num1 * num2;
-            break;
-        case '/':
-            if (num2 != 0) { // 6
-                output = num1 / num2;
-            } else {
-                System.out.println("Error! Dividing by zero is not allowed.");
+            System.out.println("----PROJEKTU VALDYMO SISTEMA----!");
+            System.out.println("Pasirinkite veiksma:");
+
+            System.out.println("1. PROJEKTAI");
+            System.out.println("2. DARBUOTOJAI");
+            System.out.println("3. EXIT");
+            int operation = scanner.nextInt();
+
+            switch (operation) {
+            case 1:
+                ProjectsUI.Display();
+                break;
+            case 2:
+                break;
+            default:
+                System.out.println("You have entered wrong operation");
                 return;
             }
-            break;
-        default:
-            System.out.println("You have entered wrong operator");
-            return;
+            if (operation == 3) {
+                break;
+            }
         }
-        System.out.println("The result is given as follows:"); // 6
-        System.out.println(num1 + " " + operator + " " + num2 + " = " + output);
 
     }
 }
